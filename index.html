@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You 💗</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffd6e7, #fff0f6);
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+    }
+
+    .center h1 {
+      color: #ff4f91;
+      font-size: 45px;
+      text-shadow: 0 0 15px rgba(255, 79, 145, 0.4);
+      animation: pulse 1.5s infinite;
+    }
+
+    .center p {
+      margin-top: 10px;
+      color: #d94f83;
+      font-size: 18px;
+    }
+
+    .love {
+      position: absolute;
+      color: #ff4f91;
+      font-size: 20px;
+      font-weight: bold;
+      white-space: nowrap;
+      animation: float 6s linear forwards;
+      opacity: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff6fa3;
+      font-size: 25px;
+      animation: fall linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-120px) rotate(20deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="center">
+    <h1>I LOVE YOU 💗</h1>
+    <p>♡ forever and always ♡</p>
+  </div>
+
+  <script>
+    function createLove() {
+      const love = document.createElement("div");
+
+      love.className = "love";
+      love.innerHTML = "I LOVE YOU 💗";
+
+      love.style.left = Math.random() * 100 + "vw";
+      love.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+      love.style.fontSize =
+        (14 + Math.random() * 15) + "px";
+
+      document.body.appendChild(love);
+
+      setTimeout(() => {
+        love.remove();
+      }, 9000);
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.className = "heart";
+      heart.innerHTML = "♥️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration =
+        (3 + Math.random() * 5) + "s";
+
+      heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+    }
+
+    setInterval(createLove, 300);
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
